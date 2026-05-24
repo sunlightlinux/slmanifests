@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sunlight Linux - repo tool manifest (default.xml)
+  Org: https://github.com/sunlightlinux
+
+  Usage:
+    repo init -u https://github.com/sunlightlinux/slmanifests.git -b main
+    repo sync -j4
+
+  Versioning: all projects track 'main' (no pinned SHAs).
+  For a reproducible release, snapshot with:
+    repo manifest -r -o release-<tag>.xml
+-->
+<manifest>
+
+  <remote name="slgh"
+          fetch="https://github.com/sunlightlinux/" />
+
+  <default remote="slgh"
+           revision="main"
+           sync-j="4" />
+
+  <!-- Kernel packaging / config. -->
+  <project name="slkernel" path="kernel" />
+
+  <!-- void-packages fork, rebranded to Sunlight Linux. -->
+  <project name="slpkgs" path="pkgs" />
+
+  <!-- Init system / service manager (PID 1), written in Go. -->
+  <project name="slinit" path="src/init" />
+
+  <!-- System installer. -->
+  <project name="slinstaller" path="src/installer" />
+
+  <!-- This manifest repo itself, checked out into the tree. -->
+  <project name="slmanifests" path="manifests" />
+
+</manifest>
