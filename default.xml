@@ -32,16 +32,16 @@
   <!-- System installer. -->
   <project name="slinstaller" path="src/installer" />
 
-  <!-- Requirements, specs, plans, and the known-good distribution
-       configuration. Part of a full checkout: the specs are meant to be
-       read beside the code they describe. -->
-  <project name="sldocs" path="docs" />
-
   <!-- PAM module (pam_slinit.so) talking to slinit-logind over login1.
        C, not Go: a PAM module is dlopened into login, sshd, gdm and su,
        and a Go shared object would put the Go runtime in every one of
        them. -->
   <project name="slpam" path="src/pam" />
+
+  <!-- Requirements, specs, plans, and the known-good distribution
+       configuration. Part of a full checkout: the specs are meant to be
+       read beside the code they describe. -->
+  <project name="sldocs" path="docs" />
 
   <!-- This manifest repo itself, checked out into the tree. -->
   <project name="slmanifests" path="manifests" />
