@@ -25,4 +25,4 @@ You should receive a response within 48 hours. We will work with you to understa
 
 - **Remotes are HTTPS only.** The `slgh` remote fetches over `https://github.com/sunlightlinux/`. A manifest change that introduces an `http://` remote, an unknown host, or an unexpected org should be treated as suspicious.
 - **`main` tracks heads; releases are pinned.** Day to day the manifest follows `main` for every project. Reproducible, auditable builds come from pinned snapshots produced with `repo manifest -r -o release-<tag>.xml`. Verify a release snapshot's SHAs against the upstream repositories before trusting it.
-- **Project scope is intentional.** The manifest lists exactly five projects. An unexplained new `<project>`, or a changed `name`/`path`, widens what gets built and shipped — review such changes as you would a new dependency.
+- **Project scope is intentional.** The manifest lists exactly six projects. An unexplained new `<project>`, or a changed `name`/`path`, widens what gets built and shipped — review such changes as you would a new dependency.

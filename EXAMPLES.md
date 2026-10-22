@@ -29,11 +29,11 @@ near-synonyms that change behavior:
 - Where should it land — top-level `docs/`, or under `src/`? (`path`.)
 - Does it track `main` like everything else, or a different branch?
   (`revision` overrides the default.)
-- Is `docs` even in scope? The manifest deliberately lists five projects.
+- Is `docs` even in scope? The manifest deliberately lists six projects.
 
 **What should happen (surface the choice):**
 
-> The manifest currently tracks five projects on purpose. Before I add one:
+> The manifest currently tracks six projects on purpose. Before I add one:
 >
 > 1. Exact repo name under `github.com/sunlightlinux/` — `docs` or `sldocs`?
 > 2. Checkout `path` — top-level `docs/`, or `src/docs/`?
@@ -90,7 +90,7 @@ together."
 …with four extra files, each holding one or two `<project>` lines, plus
 `groups="kernel"` / `groups="userland"` annotations everywhere.
 
-**Problem:** there are five projects. Splitting them across four `<include>`
+**Problem:** there are six projects. Splitting them across four `<include>`
 files and a group taxonomy adds indirection nobody can follow, for a tree that
 fits on one screen.
 
@@ -298,7 +298,7 @@ file.
 | Principle | Anti-pattern | Fix |
 |---|---|---|
 | Think Before Coding | Silently picks `name`/`path`/`revision` for a new project | List the choices; ask which repo, path, and branch |
-| Simplicity First | `<include>` splitting + group taxonomy for five projects | One `default.xml`; add `groups=` in place only when needed |
+| Simplicity First | `<include>` splitting + group taxonomy for six projects | One `default.xml`; add `groups=` in place only when needed |
 | Surgical Changes | Reorders, re-indents, adds `upstream=`/`clone-depth=` while adding one project | Add the single `<project>` line; nothing else moves |
 | Goal-Driven | Changes `name` + `revision` on a hunch for a sync failure | Reproduce with `repo manifest`/`git ls-remote`, then fix the real cause |
 
