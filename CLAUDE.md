@@ -126,8 +126,9 @@ Strong success criteria let you loop independently. Weak criteria
 - Consumed by developers and CI via `repo init` + `repo sync`.
 
 ### Invariants
-- **Five projects, on purpose:** `slkernel` (`kernel`), `slpkgs` (`pkgs`),
-  `slinit` (`src/init`), `slinstaller` (`src/installer`), `slmanifests`
+- **Six projects, on purpose:** `slkernel` (`kernel`), `slpkgs` (`pkgs`),
+  `slinit` (`src/init`), `slinstaller` (`src/installer`), `slpam`
+  (`src/pam`), `slmanifests`
   (`manifests`). `linux-sunlight` and CI repos are intentionally excluded.
 - **One remote:** `slgh` → `https://github.com/sunlightlinux/` (HTTPS only).
 - **Everything tracks `main`** — no pinned SHAs in `default.xml`.

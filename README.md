@@ -23,6 +23,7 @@ repo sync -j4
 | `slpkgs`      | `pkgs`          | `void-packages` fork, rebranded to Sunlight Linux |
 | `slinit`      | `src/init`      | Init system / service manager (PID 1), written in Go |
 | `slinstaller` | `src/installer` | System installer |
+| `slpam`       | `src/pam`       | PAM module (`pam_slinit.so`) for slinit-logind, written in C |
 | `slmanifests` | `manifests`     | This manifest repo, checked out into the tree |
 
 After `repo sync` the tree looks like:
@@ -34,7 +35,8 @@ After `repo sync` the tree looks like:
 ├── manifests/       # slmanifests (this repo)
 └── src/
     ├── init/        # slinit
-    └── installer/   # slinstaller
+    ├── installer/   # slinstaller
+    └── pam/         # slpam
 ```
 
 ## Branch Model
