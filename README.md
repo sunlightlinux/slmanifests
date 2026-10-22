@@ -24,6 +24,7 @@ repo sync -j4
 | `slinit`      | `src/init`      | Init system / service manager (PID 1), written in Go |
 | `slinstaller` | `src/installer` | System installer |
 | `slpam`       | `src/pam`       | PAM module (`pam_slinit.so`) for slinit-logind, written in C |
+| `sldocs`      | `docs`          | Requirements, specs, plans, and the known-good distribution configuration |
 | `slmanifests` | `manifests`     | This manifest repo, checked out into the tree |
 
 After `repo sync` the tree looks like:
@@ -33,6 +34,7 @@ After `repo sync` the tree looks like:
 ├── kernel/          # slkernel
 ├── pkgs/            # slpkgs
 ├── manifests/       # slmanifests (this repo)
+├── docs/            # sldocs
 └── src/
     ├── init/        # slinit
     ├── installer/   # slinstaller

@@ -27,7 +27,7 @@ This repository contains no code — just `default.xml`, the manifest that tells
 - **All projects track `main`.** Do not pin a SHA or tag on a `<project>` in `default.xml`; pinned revisions belong in release snapshots, not here.
 - **One remote (`slgh`).** Only add a second `<remote>` if a project genuinely lives outside `github.com/sunlightlinux`.
 - **`name` is the repo, `path` is the checkout location.** Keep `path` stable — changing it relocates every existing checkout and breaks CI.
-- **Keep the scope deliberate.** The manifest lists exactly six projects on purpose (`linux-sunlight` and CI repos are excluded). Adding one is a real decision; explain why in the PR.
+- **Keep the scope deliberate.** The manifest lists exactly seven projects on purpose (`linux-sunlight` and CI repos are excluded). Adding one is a real decision; explain why in the PR.
 - **Match the existing style:** two-space indent, `name` before `path`, one comment per project.
 - **Keep the header usage comment current** if you change how the manifest is used.
 

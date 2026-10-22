@@ -13,34 +13,41 @@ tool, `default.xml`, release snapshots).
 
 ### Example 1 — Ambiguous Feature Request
 
-**User request:** "Add the docs repo to the manifest."
+**User request:** "Add the CI repo to the manifest."
 
 **What LLMs often do (wrong assumption):**
 
 ```xml
-<project name="docs" path="docs" />
+<project name="ci" path="ci" />
 ```
 
 **Problem:** several things are underspecified, and the manifest format has
 near-synonyms that change behavior:
 
-- Is the repo named `docs` or `sldocs`? (`name` is the *exact* repo under
+- Is the repo named `ci` or `slci`? (`name` is the *exact* repo under
   `github.com/sunlightlinux/`.)
-- Where should it land — top-level `docs/`, or under `src/`? (`path`.)
+- Where should it land — top-level `ci/`, or under `src/`? (`path`.)
 - Does it track `main` like everything else, or a different branch?
   (`revision` overrides the default.)
-- Is `docs` even in scope? The manifest deliberately lists six projects.
+- Is `ci` even in scope? The manifest deliberately lists seven projects,
+  and CI repos are excluded on purpose.
 
 **What should happen (surface the choice):**
 
-> The manifest currently tracks six projects on purpose. Before I add one:
+> The manifest currently tracks seven projects on purpose, and CI repos
+> are deliberately not among them. Before I add one:
 >
-> 1. Exact repo name under `github.com/sunlightlinux/` — `docs` or `sldocs`?
-> 2. Checkout `path` — top-level `docs/`, or `src/docs/`?
+> 1. Exact repo name under `github.com/sunlightlinux/` — `ci` or `slci`?
+> 2. Checkout `path` — top-level `ci/`, or `src/ci/`?
 > 3. Track `main` (the default), or a different branch via `revision`?
 >
 > Also — is this part of a *full* checkout, or optional? If optional, it
 > should carry `groups="notdefault"` so a plain `repo sync` skips it.
+
+This example used to be about `sldocs`, which made the point well until
+`sldocs` was actually added — at which point a worked example asking
+"is docs even in scope?" answered its own question wrongly. The four
+questions are what matters, not which repo they are asked about.
 
 ### Example 2 — Multiple Interpretations
 
@@ -90,7 +97,7 @@ together."
 …with four extra files, each holding one or two `<project>` lines, plus
 `groups="kernel"` / `groups="userland"` annotations everywhere.
 
-**Problem:** there are six projects. Splitting them across four `<include>`
+**Problem:** there are seven projects. Splitting them across four `<include>`
 files and a group taxonomy adds indirection nobody can follow, for a tree that
 fits on one screen.
 
@@ -298,7 +305,7 @@ file.
 | Principle | Anti-pattern | Fix |
 |---|---|---|
 | Think Before Coding | Silently picks `name`/`path`/`revision` for a new project | List the choices; ask which repo, path, and branch |
-| Simplicity First | `<include>` splitting + group taxonomy for six projects | One `default.xml`; add `groups=` in place only when needed |
+| Simplicity First | `<include>` splitting + group taxonomy for seven projects | One `default.xml`; add `groups=` in place only when needed |
 | Surgical Changes | Reorders, re-indents, adds `upstream=`/`clone-depth=` while adding one project | Add the single `<project>` line; nothing else moves |
 | Goal-Driven | Changes `name` + `revision` on a hunch for a sync failure | Reproduce with `repo manifest`/`git ls-remote`, then fix the real cause |
 

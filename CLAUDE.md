@@ -40,7 +40,7 @@ Before editing the manifest:
   feature request, check whether the manifest format already has the concept
   (`<include>`, `groups=`, `<copyfile>`, `<linkfile>`, `<extend-project>`,
   `<annotation>`) before inventing structure. Match its semantics.
-- **Respect the deliberate scope.** The manifest lists exactly six projects;
+- **Respect the deliberate scope.** The manifest lists exactly seven projects;
   `linux-sunlight` and CI repos are excluded on purpose. Don't "helpfully"
   add them.
 
@@ -49,7 +49,7 @@ Before editing the manifest:
 **Minimum manifest that solves the problem. Nothing speculative.**
 
 - No projects, remotes, or groups beyond what was asked.
-- No `<include>` splitting for six projects — one `default.xml` is right.
+- No `<include>` splitting for seven projects — one `default.xml` is right.
 - No second `<remote>` unless a project genuinely lives outside
   `github.com/sunlightlinux`.
 - No `<copyfile>`/`<linkfile>` unless a real consumer needs the file in two
@@ -126,9 +126,9 @@ Strong success criteria let you loop independently. Weak criteria
 - Consumed by developers and CI via `repo init` + `repo sync`.
 
 ### Invariants
-- **Six projects, on purpose:** `slkernel` (`kernel`), `slpkgs` (`pkgs`),
-  `slinit` (`src/init`), `slinstaller` (`src/installer`), `slpam`
-  (`src/pam`), `slmanifests`
+- **Seven projects, on purpose:** `slkernel` (`kernel`), `slpkgs`
+  (`pkgs`), `slinit` (`src/init`), `slinstaller` (`src/installer`),
+  `slpam` (`src/pam`), `sldocs` (`docs`), `slmanifests`
   (`manifests`). `linux-sunlight` and CI repos are intentionally excluded.
 - **One remote:** `slgh` → `https://github.com/sunlightlinux/` (HTTPS only).
 - **Everything tracks `main`** — no pinned SHAs in `default.xml`.
